@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper>
+		<!--
+		id값에다 전달해줄 메서드를 지정
+		ex) getAllProducts 메서드에 전달하고 싶다면 id 값에 getAllProducts를 넣어주면 됨.
+		resultType 은 불러온 결과를 어디에다 감싸서 전달할지를 보여주는 장소.
+		ex) model의 객체로 매핑(감싸서)해서 반환하도록 설정한 것
+		-->
+	<select id="getAllProducts" resultType="com.kh.springdb.model">
+		SELECT * FROM products
+	</select>
+</mapper>
