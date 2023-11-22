@@ -8,14 +8,17 @@
 		<version>3.1.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	
 	<groupId>com.kh.springdb</groupId>
 	<artifactId>spring-DB-Oracle</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-DB-Oracle</name>
 	<description>Demo project for Spring Boot</description>
+	
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

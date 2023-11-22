@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kh.springdb.mapper.ProductMapper">
 		<!--
 		namespace : mapper 파일의 위치를 지정해준다. 자동으로 생기진 않음.
@@ -8,7 +8,7 @@
 		resultType 은 불러온 결과를 어디에다 감싸서 전달할지를 보여주는 장소.
 		ex) model의 객체로 매핑(감싸서)해서 반환하도록 설정한 것
 		-->
-	<select id="getAllProducts" resultType="com.kh.springdb.model">
+	<select id="getAllProducts" resultType="com.kh.springdb.model.Product">
 		SELECT * FROM products
 	</select>
 </mapper>

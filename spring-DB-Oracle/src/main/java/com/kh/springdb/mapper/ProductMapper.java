@@ -5,4 +5,6 @@ import com.kh.springdb.model.Product;
 
 public interface ProductMapper {
 	List<Product> getAllProducts();
+	
+	
 }
