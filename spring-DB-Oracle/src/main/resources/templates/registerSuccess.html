@@ -2,9 +2,14 @@
 <html>
 	<head>
 		<meta charset="EUC-KR">
-		<title>회원 가입 성공</title>
+		<title>회원가입 성공</title>
 	</head>
 	<body>
 		<h1>가입을 축하합니다 !</h1>
+		<a th:href="@{/}"><button>돌아가기</button></a>
 	</body>
 </html>
+
+<!--
+	기본적으로 localhost:8080의 기본 경로는 / (슬래시)하나 이기 때문에 @{/}는 localhost:8080/ 과 동일한 위치를 가짐
+-->

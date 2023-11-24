@@ -42,10 +42,15 @@ public class UserController {
 		return "register"; // return "템플릿명"
 	}
 	
+	@GetMapping("/registerSuccess")
+	public String getRegisterSuccess() {
+		return "registerSuccess";
+	}
+	
 	@PostMapping("/api/user/register")
 	public String registerMember(@ModelAttribute("user") @Validated User user, BindingResult result) {
 		userService.registerUser(user);
-		return "redirect:/register?success"; // 유저가 회원가입을 성공할 경우 이동할 경로
+		return "redirect:/registerSuccess"; // 유저가 회원가입을 성공할 경우 이동할 경로
 	}
 	
 }
