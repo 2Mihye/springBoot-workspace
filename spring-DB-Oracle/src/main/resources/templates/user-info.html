@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>아이디 하나만 가져오기</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+	</head>
+	<body>
+		<h1>one user info</h1>
+		<div th:if="${user}">
+			<p th:text="${user.mno}"></p>
+			<p th:text="${user.mname}"></p>
+			<p th:text="${user.memail}"></p>
+			<p th:text="${user.mbirth}"></p>
+		</div>
+	</body>
+</html>
