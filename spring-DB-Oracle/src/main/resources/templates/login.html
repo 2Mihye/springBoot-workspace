@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>로그인</title>
+	</head>
+	<body>
+	<!--
+		login mname 로그인하기
+		session을 제외하고 로그인을 넘겨주는 것 까지 진행
+		$ : 값을 주고 받을 때
+		@ : HTML에서 경로
+				
+	-->
+	<form th:action="@{/login" method="post" th:object="@{loginForm}">
+		<label for="mname">이름 : </label>
+		<input type="text" id="mname" name="mname" th:field="*{mname}" required>
+		
+		<button type="submit">로그인하기</button>
+	</form>
+	</body>
+</html>
