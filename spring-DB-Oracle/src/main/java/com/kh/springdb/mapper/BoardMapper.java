@@ -15,11 +15,14 @@ public interface BoardMapper {
 	Board getBoardById(int boardID);
 	
 	// 게시물 저장하기
-	void saveBoard(Board board);
+	void insertBoard(Board board);
 	
 	// 게시물 수정하기
 	void updateBoard(Board board);
 	
 	// 게시물 삭제하기
 	void deleteBoard(int boardID);
+	
+	// 게시물 전체 삭제
+	void deleteAllBoards();
 }

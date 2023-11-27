@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>게시물 등록</title>
+		<link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}">
+	</head>
+	<body>
+		<h2>게시글 등록</h2>
+		<form th:action="${boardID != null ? '/boards/update/' + boardID:'/boards/create'}" th:object="${board}" method="post">
+			<input type="hidden" th:field="*{boardID}"/>
+			
+			<label for="title">제목</label>
+			<input type="text" th:field="*{title}" required/>
+			
+			<label for="content">내용</label>
+			<textarea th:field="*{content}" required></textarea>
+			
+			<label for="author">작성자</label>
+			<input type="text" th:field="*{author}"/>
+			
+			<button>등록</button>
+		</form>
+	</body>
+</html>
