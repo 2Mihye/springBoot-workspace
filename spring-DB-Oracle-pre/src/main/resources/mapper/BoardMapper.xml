@@ -11,4 +11,13 @@
 	<select id="getAllBoards" resultType="com.kh.springdb.model.Board">
 		SELECT * FROM board
 	</select>
+	
+	<select id="getBoardById" parameterType="int" resultType="com.kh.springdb.model.Board">
+		SELECT * FROM board WHERE board_id = #{board_id}
+	</select>
+	
+	<insert id="insertBoard" parameterType="com.kh.springdb.model.Board">
+		INSERT INTO board (board_id, title, content, author)
+		VALUES (#{board_id}, #{title}, #{content}, #{author})
+	</insert>
 </mapper>

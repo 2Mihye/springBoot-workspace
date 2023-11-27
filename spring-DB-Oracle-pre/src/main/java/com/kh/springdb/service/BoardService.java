@@ -15,4 +15,12 @@ public class BoardService {
 	public List<Board> getAllBoards(){
 		return boardMapper.getAllBoards();
 	}
+	
+	public Board getBoardById(int id) {
+		return boardMapper.getBoardById(id);
+	}
+	
+	public void insertBoard(Board board) {
+		boardMapper.insertBoard(board);
+	}
 }

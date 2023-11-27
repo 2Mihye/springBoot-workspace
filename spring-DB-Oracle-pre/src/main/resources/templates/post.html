@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>Post</title>
+	</head>
+	<body>
+		<form th:action="@{/api/board/post}" method="post" th:object="${board}">
+			<lable for="board_id">글 번호 : </lable>
+			<input type="number" id="board_id" name="board_id" th:field="*{board_id}" required><br>
+			
+			<lable for="title">제목 : </lable>
+			<input type="text" id="title" name="title" th:field="*{title}" required><br>
+			
+			<lable for="content">글 번호 : </lable>
+			<input type="text" id="content" name="content" th:field="*{content}" required><br>
+			
+			<lable for="author">글 번호 : </lable>
+			<input type="text" id="author" name="author" th:field="*{author}" required><br>
+			
+			<button type="submit">가입하기</button>
+		</form>
+	</body>
+</html>

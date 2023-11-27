@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Board Detail</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css"
+	</head>
+	<body>
+		<h1>Board Detail</h1>
+		<div th:if="${user}">
+			<p th:text="${board.board_id"></p>
+			<p th:text="${board.title"></p>
+			<p th:text="${board.content"></p>
+			<p th:text="${board.author"></p>
+		</div>
+	</body>
+</html>

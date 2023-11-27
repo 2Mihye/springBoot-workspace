@@ -14,6 +14,8 @@
 					<th>Name</th>
 					<th>E-mail</th>
 					<th>Birthdate</th>
+					<th>modify</th>
+					<th>delete</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -22,6 +24,9 @@
 					<td th:text="${u.mname}"></td>
 					<td th:text="${u.memail}"></td>
 					<td th:text="${u.mbirth}"></td>
+					
+					<td><a th:href="@{'/api/user/update/' + ${u.mno}}">click</a></td>
+					<td><a th:href="@{'/user-delete' + ${u.mno}}">click</a></td>
 				</tr>
 			</tbody>
 		</table>
