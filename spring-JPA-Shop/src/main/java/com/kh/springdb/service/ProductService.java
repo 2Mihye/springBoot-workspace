@@ -1,6 +1,7 @@
 package com.kh.springdb.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,10 +24,25 @@ public class ProductService {
 		return productRepository.findAll(); // Repository.findAll은 이미 만들어져 있는 지정된 메서드를 가지고와서 사용하는 것
 	}
 	
+	public Optional<Products> getProductByID(Long id){ // 상품 1개만 조회하는 메서드 // Optional은 util로 import
+		return productRepository.findById(id);		
+	}
+	
+	public Products saveProduct(Products product) { // 저장하는 메서드
+		return productRepository.save(product);
+	}
+	
+	public void deleteProducByID(Long id) { // 삭제하는 메서드
+		productRepository.deleteById(id);
+	}
+	
 	/*
 	 * Controller와 Service의 역할차이
 	 * Service : 앞서 진행했던 DB를 가져오는 구문을 상호작용(insert, select, update, delete)하도록 처리하는 역할
 	 * 
 	 * Controller : HTML 요청을 처리하고 사용자를 위한 DB를 서비스를 통해 전달하고, 서비스에서 전달받은 결과를 View에게 전달.
+	 * 
+	 * Optional :
+	 * 		제품의 존재 여부를 체크할 수 있도록 해주는 객체
 	 */
 }

@@ -21,7 +21,7 @@ public class Products {
 	private String category;
 	//@Column(name = "price")
 	private Double price;
-	private Integer stockQuantity;
+	private Integer stock_quantity;
 }
 
 /*
