@@ -6,8 +6,8 @@
 	</head>
 	<body>
 		<h2>제품 추가 폼 작성</h2>
-		<form th:action="" th:object="" method="post">
-			<input type="hidden" th:field="*{id}"/>
+		<form th:action="@{/products/save}" th:object="${product}" method="post">
+			<input type="hidden" th:field="*{product_id}"/>
 			
 			<label>ID : </label>
 			<input th:text="${product.product_id}"/>
@@ -28,6 +28,9 @@
 			
 			<!-- 
 				th:text
+					DB에서 값을 가지고 옴.
+					th:text = ${product_id} -> getProductId 하나의 값 가져오기
+					th:text = ${product.product_id} products 중 하나씩 가져와서 넣어줄 때
 					특정 HTML 내용을 유동적으로 설정하는 데 사용하여 서버에서 전달된 데이터나 변수값을 해당 값에다 넣어서 텍스트로 출력할 때 사용
 					Get을 사용하는 느낌이랑 똑같아서 주로 p태그와 같이 무언가를 출력할 때 많이 사용함.
 				
@@ -40,6 +43,13 @@
 							폼에 작성해준 변수명을 정의할 때 주로 사용하고 변수명의 상대적인 경로로 *{변수명}으로 적어준 속성을 나타낸다.
 					2. th:field = "${변수명}"
 							변수를 나타내는 표현으로 컨트롤러에서 model에 추가된 속성을 가져와서 필드 안에 넣어줄 떄 많이 사용함.
+							
+				th:object
+					th:object="${product}" 애초에 값을 하나만 가지고 오겠다.
+					1. 새로운 값이 자동으로 들어가야 할 수 있음. Insert
+					2. 기존에 있던 값이 또 한번 들어가야 할 수 있음. Update
+					 이럴 바에는 html 하나만 만들고 컨트롤러에서 메서드 하나만 추가해서 메서드에서 기존에 id 값이 있는지 없는지 존재 여부만 체크한 뒤
+					 만약 값이 있다면 수정으로 가고 값이 없다면 새로 만들기로 보내자!
 			 -->
 		</form>
 	</body>

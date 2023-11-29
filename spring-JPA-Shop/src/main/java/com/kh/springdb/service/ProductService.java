@@ -25,7 +25,7 @@ public class ProductService {
 	}
 	
 	public Optional<Products> getProductByID(Long id){ // 상품 1개만 조회하는 메서드 // Optional은 util로 import
-		return productRepository.findById(id);		
+		return productRepository.findById(id);		// Optional은 상품이 있는지 없는지 먼저 조회한 뒤 값을 추가하겠다는 것
 	}
 	
 	public Products saveProduct(Products product) { // 저장하는 메서드

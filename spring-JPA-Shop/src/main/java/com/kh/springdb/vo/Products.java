@@ -16,7 +16,7 @@ public class Products {
 	//@Column(name = "product_id")
 	private long product_id; //위 어노테이션을 사용하면 테이블을 새로 생성하는 거지만, 이미 있는 것을 확인하는 용이라 칼럼명도 일치해야하고, 칼럼 순서도 일치해야 함.
 	//@Column(nullable = false, length = 50)
-	private String product_name; // 굳이 안테 데이터 타입은 맞춰주지 않아도 됨.
+	private String product_name; // 굳이 안에 데이터 타입은 맞춰주지 않아도 됨.
 	//@Column(nullable = false, length = 50)
 	private String category;
 	//@Column(name = "price")

@@ -34,7 +34,7 @@
 	
 	@Entity :
 		DB에서 테이블에 대응하는 클래스로 @Entity가 붙은 클래스는 JPA에서 관리하는 것이고 한글로 엔티티라고 부름.	
-		DB에 item 테이블을 만들고, 이에 대응되는 Item.java를 알아서 만들어서 @Entity 어노테이션이 붙은 클래스가 엔티티가 되는 것.		
+		DB에 item 테이블을 만들고, 이에 대응되는 Item.java를 알아서 만들어서 @Entity 어노테이션이 붙은 클래스가 엔티티가 되는 것.
 		
 	@Data :
 		@ToString, @EqualsAndHashCode, @Getter, @Setter, @RequiredArg-sConstructor 들을 합친 어노테이션으로 한번에 사용해야 할 때 씀
