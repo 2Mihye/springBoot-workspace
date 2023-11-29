@@ -13,7 +13,7 @@ public class Board {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="board_add_sequence")
 	@Column(name = "board_id")
-	private Long boardId;
+	private Long boardID;
 	@Column(name = "title")
 	private String title;
 	@Column(name = "content")

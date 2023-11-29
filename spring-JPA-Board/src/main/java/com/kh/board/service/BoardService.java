@@ -22,11 +22,19 @@ public class BoardService {
 		return boardRepository.findAll();
 	}
 	
-	public Optional<Board> getBoardByID(Long id){ // 게시물 하나 조회
-		return boardRepository.findById(id);
+	public Optional<Board> getBoardByID(Long boardID){ // 게시물 하나 조회
+		return boardRepository.findById(boardID);
 	}
 	
 	public Board saveBoard(Board board) { // 게시물 추가하기
 		return boardRepository.save(board);
+	}
+	
+	public void deleteBoard(Long boardID) { // 게시물 삭제하기 (return해줄 것이 없으므로 void)
+		boardRepository.deleteById(boardID);
+	}
+	
+	public void deleteAllBoards() { // 게시물 모두 삭제하기
+		boardRepository.deleteAll();
 	}
 }

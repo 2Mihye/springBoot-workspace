@@ -57,4 +57,18 @@ public class BoardController {
 		board.ifPresent(value -> model.addAttribute("board", value));
 		return "board_form";
 	}
+	
+	// 삭제하기
+	@GetMapping("/delete/{boardID}")
+	public String deleteBoard(@PathVariable Long boardID) {
+		boardService.deleteBoard(boardID);
+		return "redirect:/boards";
+	}
+	
+	// 모두 삭제하기
+	@GetMapping("/delete/all")
+	public String deleteAllBoards() {
+		boardService.deleteAllBoards();
+		return "redirect:/boards";
+	}
 }

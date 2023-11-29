@@ -7,7 +7,7 @@
 	<body>
 		<h2>Board Form</h2>
 		<form th:action="@{/boards/save}" th:object="${board}" method="post">
-			<input type="hidden" th:field="*{boardId}"/>
+			<input type="hidden" th:field="*{boardID}"/>
 			
 			<label for="">Title</label>
 			<input type="text" th:field="*{title}"/><br>

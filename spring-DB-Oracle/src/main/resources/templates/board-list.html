@@ -34,16 +34,16 @@
 			</tbody>
 		</table>
 		<a th:href="@{/boards/create}">게시글 작성하기</a>
-		<a th:href="@{/boards/delete-all-boards}" onclick="showAlert()">모두 삭제</a>
+		
+		<a href="#" th:onclick="checkDelete()">모두 삭제</a>
 		<script>
-			function showAlert() {
+			function checkDelete() {
 				var checkDelete = confirm ('정말 모든 게시물을 삭제 하시겠습니까?');
 				if(checkDelete) {
+					window.location.href='/boards/delete-all-boards'
 					alert('게시물이 삭제되었습니다.');
-					return true;
 				} else {
 					alert('게시물 삭제가 취소되었습니다.');
-					return false;
 				}
 			}
 		</script>
