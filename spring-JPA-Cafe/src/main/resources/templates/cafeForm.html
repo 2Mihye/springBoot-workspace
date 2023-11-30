@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>Cafe Form</title>
+	</head>
+	<body>
+		<h2>Cafe Form</h2>
+		<form th:action="@{/cafes/save}" method="post" th:object="${cafe}">
+			<input type="hidden" th:field="*{cafeID}"/>
+			<label for="cafeName">NAME</label>
+			<input type="text" id="cafeName" name="cafeName" th:field="*{cafeName}" required/>
+			<br/>
+			<label for="location">LOCATION</label>
+			<input type="text" id="location" name="location" th:field="*{location}" required/>
+			<br/>
+			<label for="openingHours">OPENING HOURS</label>
+			<input type="text" id="openingHours" name="openingHours" th:field="*{openingHours}" required/> 
+			<br/>
+			<button type="submit">Save Cafe</button>
+			<!--
+				사용자가 작성한 내용을 DB에 넣어주기 위한 th:field -> 간단히 새롭게 글 쓸 때
+				DB에서 가져온 내용을 사용자에게 보여주기 위한 th:text -> 업데이트 할 때
+			-->																					
+		</form>
+		<a th:href="@{cafes}">Back to List</a>
+	</body>
+</html>

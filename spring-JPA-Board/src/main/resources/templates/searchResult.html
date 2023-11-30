@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>검색 결과</title>
+	</head>
+	<body>
+		<h2>검색 결과</h2>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Title</th>
+					<th>Author</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- 검색이 하나만 되리라는 보장이 없으므로 검색 결과를 모두 표시하는 공간을 만들어 줌 -->
+				<tr th:each="board : ${boards}">
+					<td th:text="${board.boardID}"></td>
+					<td th:text="${board.title}"></td>
+					<td th:text="${board.author}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
