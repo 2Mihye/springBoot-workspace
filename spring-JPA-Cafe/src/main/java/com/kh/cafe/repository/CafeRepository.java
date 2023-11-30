@@ -27,7 +27,7 @@ public interface CafeRepository extends JpaRepository<Cafe, Long>{
   				  메서드에 규칙이 존재하고, 규칙에 따라서 메서드를 생성해주는 기능
   				  메서드 이름으로 DB 쿼리를 생성할 수 있다.
   				  
- List<Cafe>findByCafeNameContaining(String keyword)
+ List<Cafe>findByCafeNameContaining(String keyword) // Containing : 해당하는 변수명이 특정 변수에 대한 검색을 Like로 진행할 수 있게 도와줌.(= %~~%)
  		   countBy
  		    등등
  ->JPA 규칙을 지정하여 이 규칙만 지켜주면 JPA가 알아서 쿼리를 만들어주는 것
