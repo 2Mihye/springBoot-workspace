@@ -39,8 +39,15 @@ public class CafeService {
 	}
 	
 	
-	public List<Cafe> findCafes(String keyword){
+	public List<Cafe> findCafes(String keyword){ // 카페 검색하기
 		return cafeRepository.findByCafeNameContaining(keyword);
 	}
 	
+	public int countCafesByLocation(String location) { // 지역 카운터
+		return cafeRepository.countByLocation(location);
+	}
+	
+	public boolean existsCafeByName(String name) { // 카페 존재여부
+		return cafeRepository.existsByName(name);
+	}
 }
