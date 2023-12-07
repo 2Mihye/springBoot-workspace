@@ -56,6 +56,7 @@ public class CartService {
 	    if (cartItem == null) {
 	        // 장바구니에 해당 아이템이 없으면 새로운 CartItem 생성
 	        cartItem = new CartItem();
+	        cartItem.setId(amount);
 	        cartItem.setCart(cart);
 	        cartItem.setItem(newItem);
 	        cartItem.setCount(amount);
@@ -86,6 +87,7 @@ public class CartService {
 			orderRepository.save(order); // 결제 이후 문제가 생길 것을 대비하여 DB 안에도 주문한 사람과 주문 날짜와 같은 주문 내역을 저장할 예졍.
 			
 			// delete와 clear
+			cartRepository.deleteAll();
 			cart.getCartItems().clear(); // 주문하고나면 장바구니를 비워야 하기 때문에 장바구니 지우는 코드 설정
 			cartRepository.save(cart);
 		}

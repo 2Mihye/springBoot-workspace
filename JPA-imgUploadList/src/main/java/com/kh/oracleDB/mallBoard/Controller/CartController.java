@@ -30,6 +30,7 @@ public class CartController {
 	}
 	
 	// 장바구니 목록을 보여주기 위한 GetMapping
+	@GetMapping
 	public String viewCart(Model model) {
 		Cart cart = cartService.getCartById(1L);
 		model.addAttribute("cart", cart);
@@ -37,7 +38,7 @@ public class CartController {
 	}
 	
 	// 주소를 접속하기 위해서 GetMapping을 작성
-	@GetMapping("/add")
+	@GetMapping("/add/{itemId}")
 	public String addToCart(@PathVariable("itemId") int itemId, Model model) {
 		// 장바구니에 상품 추가
 		Item newItem = itemService.getItemById(itemId);
