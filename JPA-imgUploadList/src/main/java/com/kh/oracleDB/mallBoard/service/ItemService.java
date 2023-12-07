@@ -26,6 +26,7 @@ public class ItemService {
 	}
 	
 	
+	
 	// 상품을 등록할 수 있는 메서드
 	// 기존에는 상품명이나 글자로 이루어진 내용을 넣었지만 이미지를 넣어주기 위해 파일을 파라미터에 받겠다고 작성해줄 것 !
 	public void saveItem(Item item, MultipartFile imgFile) throws IllegalStateException, IOException {
@@ -35,6 +36,7 @@ public class ItemService {
 		File saveFile = new File(projectPath, originName);
 		
 		imgFile.transferTo(saveFile); // throw 작성
+		
 		item.setImgName(projectPath);
 		item.setImgPath("/img/" + originName);
 		

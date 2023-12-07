@@ -55,6 +55,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- 인증이나 보안을 위해 사용하는 디펜던시 -->
+		<!--
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency> -->
 	</dependencies>
 
 	<build>
