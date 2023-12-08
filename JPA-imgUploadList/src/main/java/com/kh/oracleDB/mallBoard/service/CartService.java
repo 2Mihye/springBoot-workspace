@@ -71,7 +71,7 @@ public class CartService {
 	}
 	
 	// 결제하기
-	@Transactional
+	@Transactional // 자동으로 rollback이나 commit을 해줌.
 	public void checkout(Long cartId) {
 		// 주문할 아이템 정보를 찾기 위해 cart entity 정보를 가지고옴
 		Cart cart = cartRepository.findById(cartId).orElse(null);
@@ -89,6 +89,7 @@ public class CartService {
 			// delete와 clear
 			cartRepository.deleteAll();
 			cart.getCartItems().clear(); // 주문하고나면 장바구니를 비워야 하기 때문에 장바구니 지우는 코드 설정
+			// 배열이나 List, set과 같은 컬렉션에서 리스트나 컬렉션을 초기화 할 때 사용
 			cartRepository.save(cart);
 		}
 	}

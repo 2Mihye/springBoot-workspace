@@ -26,7 +26,9 @@ public class Item {
 	private String price; // 물건 가격
 	private int count; // 판매 개수
 	private int stock; // 재고
-	private int isSoldOut; // 품절유무
+	
+	private boolean isCheckOut; // true(=판매중) false(=품절)
+	private int isSoldOut; // 품절유무 ( 0 = 판매중 / 1 = 품절 (/ 2 = 일시중지 / 3 = 10개씩 묶음판매 ))
 	
 	// 이미지 업로드를 위한 파일명, 이미지 경로, 상품 등록 날짜
 	private String imgName;

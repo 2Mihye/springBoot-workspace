@@ -63,7 +63,7 @@ public class CartController {
 	// 결제 완료 후 장바구니 삭제하기 위한 메서드 추가
 	@PostMapping("/checkout")
 	public String checkout(RedirectAttributes redirectAttribute) {
-		Long cartId = 1L;
+		Long cartId = 1L; // User을 연결하고 나면 1L 대신에 로그인한 유저 값이 들어가야 함.
 		try {
 			cartService.checkout(cartId);
 			redirectAttribute.addFlashAttribute("checkoutStatus", "success");
@@ -83,6 +83,4 @@ public class CartController {
 	*RedirectAttributes : redirect할 때 속성을 전달하는 데 사용.
 	*addFlashAttribute  : 데이터를 추가할 때 redirect 후 한 번만 사용 가능. 사용 후에는 속성이 자동으로 삭제됨. (1회성)
 						 redirect해서 돌아가고자 하는 페이지로 이동할 때 속성이 존재하고, 돌아간 페이지에서 속성을 사용할 수 있음.
-	
-	
 */
