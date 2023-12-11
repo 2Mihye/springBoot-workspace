@@ -5,13 +5,13 @@
 		<title>login Page</title>
 	</head>
 	<body>
-		<form th:action="@{/user/login}" method="post"">
+		<form th:action="@{/user/login}" method="get">
 			<div>
-				<label>사용자ID</label>
-				<input type="text" name="username" id="username"/>
+				<label for="userName">사용자ID</label>
+				<input type="text" name="userName" id="userName"/>
 			</div>
 			<div>
-				<label>비밀번호</label>
+				<label for="password">비밀번호</label>
 				<input type="password" name="password" id="password"/>
 			</div>
 			<button type="submit">로그인</button>

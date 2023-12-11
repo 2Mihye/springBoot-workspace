@@ -8,10 +8,10 @@
 		<div>
 			<h4>회원가입</h4>
 		</div>
-		<form th:action="@{/user/signup}" th:object="${userCreateForm}" method="post">
+		<form th:action="@{/user/signup}" th:object="${userCheckForm}" method="post">
 			<div>
-				<label for="username">사용자ID</label>
-				<input type="text" th:field="*{username}"/>
+				<label for="userName">사용자ID</label>
+				<input type="text" th:field="*{userName}"/>
 			</div>
 			<div>
 				<label for="password1">비밀번호</label>
