@@ -4,9 +4,9 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.kh.springdb.model.SecurityUser;
+import com.kh.springdb.model.SecurUser;
 
-public interface UserRepository extends JpaRepository<SecurityUser, Long>{
+public interface UserRepository extends JpaRepository<SecurUser, Long>{
 	// 로그인을 위한 옵션활용 repository 생성
-	Optional<SecurityUser> findByUserName(String username);
+	Optional<SecurUser> findByusername(String username);
 }

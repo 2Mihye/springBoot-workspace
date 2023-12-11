@@ -23,7 +23,7 @@ public class UserController {
 	public String signUP(UserCheckForm userCheckForm) {
 		return "signup_form";
 	}
-	
+
 	// 회원가입을 진행할 때 값이 존재하는지 원하는 조건에 맞는지 확인 후 전달
 	@PostMapping("/signup")
 	public String signUp(@Valid UserCheckForm usercheckform, BindingResult bindingResult) {
@@ -38,7 +38,7 @@ public class UserController {
 			return "signup_form";
 		}
 		// 모든 내용을 잘 작성했다면 DB에 저장해주기
-		userService.create(usercheckform.getUserName(), usercheckform.getEmail(),usercheckform.getPassword1());
+		userService.create(usercheckform.getUsername(), usercheckform.getEmail(),usercheckform.getPassword1());
 		
 		// 회원가입이 완료됐을 경우 메인페이지로 이동
 		return "redirect:/"; 
