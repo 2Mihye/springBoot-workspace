@@ -28,5 +28,4 @@ public class MemberController {
 		memberService.insertMember(member);
 		return "redirect:/members";
 	}
-	
 }

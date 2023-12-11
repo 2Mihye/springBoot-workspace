@@ -37,6 +37,11 @@
 					<span th:text="${item.stock}"></span><br/>
 					<a th:href="@{/item/itemdetails/{id}(id=${item.id})}">상세보기</a>
 					
+					<!--
+						리스트에 들어갈 때 Role이 맞는지 확인 후 구매 수량 설정할 수 있는 코드 만들기
+					-->
+					
+					
 					<!-- 장바구니에 담은 내역을 post로 보내줌  -->
 					<form th:action="@{/cart/add}" method="post">
 						<input type="hidden" name="itemId" th:value="${item.id}"/>
