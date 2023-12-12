@@ -1,6 +1,7 @@
 package com.kh.springdb.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -13,10 +14,11 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
+@Table(name="Products")
 public class Product {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="product_seq")
-	@SequenceGenerator(name = "product_seq", sequenceName = "product_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="products_seq")
+	@SequenceGenerator(name = "products_seq", sequenceName = "products_seq", allocationSize = 1)
 	private int id;
 	
 	private String name;
@@ -27,6 +29,12 @@ public class Product {
 	
 	// private boolean isCheckOut;
 	private int isSoldOut;
+	
+	
+	// 댓글 작성을 위한 Comment 생성
+	@OneToMany(mappedBy = "product", cascade=CascadeType.ALL)
+	private List<Comments> comments;
+	
 	
 	// 상품 이미지를 위한 필드 설정
 	private String imgName;

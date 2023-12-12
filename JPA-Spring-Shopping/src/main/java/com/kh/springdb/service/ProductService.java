@@ -3,6 +3,8 @@ package com.kh.springdb.service;
 import java.io.File;
 import java.util.List;
 
+import org.springframework.data.domain.*;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,11 +22,21 @@ public class ProductService {
 		return productRepository.findAll();
 	}
 	
+	// pagination add
+	public Page<Product> getList(int page){
+		/*
+		 int conPage = Math.max(0, page);
+		 Pageable pageable = PageRequest.of(conPage, 1);
+		  */					//(page 페이지 값 , 1= 페이지당 보여줄 목록 개수)
+		Pageable pageable = PageRequest.of(page, 3, Sort.by("createDate").descending());
+		return productRepository.findAll(pageable);
+	}
+	
 	public void saveProduct(Product product, MultipartFile imgFile) throws Exception {
 		// 이미지 파일 이름 가져오기
 		String originName = imgFile.getOriginalFilename();
 		
-		String  projectPath = System.getProperty("user.dir") + "/src/main/resource/static/img/";
+		String  projectPath = System.getProperty("user.dir") + "/src/main/resources/static/img/";
 		
 		File saveFile = new File(projectPath, originName);
 		
