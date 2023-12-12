@@ -20,7 +20,7 @@ public class UserController {
 	
 	// 회원가입할 때 들어갈 창 조회
 	@GetMapping("/signup")
-	public String signUP(UserCheckForm userCheckForm) {
+	public String signUp(UserCheckForm userCheckForm) {
 		return "signup_form";
 	}
 
@@ -45,7 +45,7 @@ public class UserController {
 	}
 	
 	
-	
+	// post는 insert나 update문 처럼 DB 안에 집어넣어야 할 때 사용
 	@GetMapping("/login")
 	public String login() {
 		return "login_form";

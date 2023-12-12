@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Product List</title>
+	</head>
+	<body>
+		<h1>Product List</h1>
+		<a th:href="@{/product/new}">상품 추가하기</a>
+		<div th:each="product : ${products}">
+			<img th:src="@{${product.getImgPath()}}"/>
+			<label>제품명 : </label>
+			<span th:text="${product.name}"></span>
+			
+			<label>제품 가격 : </label>
+			<span th:text="${product.price}"></span>
+			
+			<a th:href="@{/product/detail/{id}(id=${product.id})}">상세보기</a>
+			
+			<!-- 장바구니에 상품을 담고자 한다면 장바구니에 담기 버튼 생성해서 담아주기 -->
+			<form th:action="@{/cart/add}" method="post">
+				<input type="hidden" name="productId" value="${product.id}"/>
+				<button type="submit">장바구니에 담기</button>
+			</form>
+		</div>
+	</body>
+</html>
