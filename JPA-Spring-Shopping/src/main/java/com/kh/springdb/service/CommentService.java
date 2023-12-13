@@ -18,7 +18,7 @@ public class CommentService {
 	
 	// 댓글 추가 메서드 작성
 	public Comments addComment(int productId, String content) {
-		Product product = productRepository.findById(productId).orElse(null);
+		Product product = productRepository.findProductById(productId);
 		// 만약 상품이 존재하지 않을 경우 댓글 또한 존재하지 않으므로 댓글이 존재할 수 없음을 예외처리 함.
 		if(product == null) {
 			throw new RuntimeException("찾는 상품은 존재하지 않습니다.");

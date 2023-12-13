@@ -1,15 +1,36 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	<head>
 		<meta charset="EUC-KR">
 		<title>Main Page</title>
 	</head>
 	<body>
 		<h1>Main Page</h1>
-		<a>로그인</a><br>
-		<a>로그아웃</a><br>
-		<a>회원가입</a><br>
+		<a sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a><br>
+		<a sec:authorize="isAuthenticated()" >로그아웃</a><br>
+		<a sec:authorize="isAnonymous()" th:href="@{/user/signup}">회원가입</a><br>
 		<a th:href="@{/list}">상품리스트</a>
 		
+		<div th:if="${#authorization.expression('isAuthenticated()')}">
+		<!-- 만약 로그인을 했다면 로그인 된 유저 표현하기 -->
+			<p th:text="'안녕하세요, ' + ${#authentication.name} + '님 환영합니다.'"></p>
+		</div>
 	</body>
 </html>
+
+<!--
+	sec:authorize = 작성할 메서드
+	작성할 메서드 리스트
+	1. hasRole("ROLE_ADMIN") : ROLE_ADMIN 권한을 가진 사용자에게만 보이는 컨텐츠, div, button...
+		*** hasRole("'ROLE_ADMIN', 'ROLE_USER'") : 로그인한 회원과 관리자만 볼 수 있게 하고싶을 때 (비회원은 못 보게)
+	
+	2. isAuthenticated() : 로그인한 사용자에게만 보이는 내용 // 만약 인증이 되지 않은 사용자라면 앞에 !(느낌표)를 붙여주면 됨.
+	
+	3. isAnonymous()     : 로그인하지 않은 사용자에게만 보이는 내용
+	
+	4. hasIpAddress('가능한 IP주소') : 요청이 특정 IP주소에서 온 경우만 내용을 보여줌.
+	
+	5. permitAll() 		 : 모든 사용자에게 접근을 허용하고 내용을 표기할 수 있도록 함.
+	
+	6. denyAll()		 : 모든 사용자에게 접근을 거부하고 내용을 숨김.
+-->

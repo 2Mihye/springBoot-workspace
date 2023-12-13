@@ -21,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProductController {
 	private final ProductService productService;
+	private final CommentService commentService;
 	
 	@GetMapping("/")
 	public String mainPageView(Model model) {
@@ -74,8 +75,6 @@ public class ProductController {
 		model.addAttribute("product", product);
 		return "product_detail";
 	}
-	
-	private CommentService commentService;
 	
 	// 댓글 작성하기 위한 postMapping
 	@PostMapping("/addComment")
