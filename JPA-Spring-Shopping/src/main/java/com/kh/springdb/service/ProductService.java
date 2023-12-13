@@ -43,13 +43,25 @@ public class ProductService {
 		imgFile.transferTo(saveFile); // MultipartFile 에 File로 읽어온 이미지 파일을 저장하기 위해 변환하기	
 		
 		product.setImgName(originName); // 가져온 파일 이름 원본 저장
-		product.setImgPath(projectPath); // 경로 저장을 DB에 작성해주기
+		//product.setImgPath(projectPath); // 경로 저장을 DB에 작성해주기
+		product.setImgPath("/img/" + originName);
 		
-		productRepository.save(product);		
+		productRepository.save(product);
+		
+		
 	}
 	
 	// 상품 상세 페이지나 수정하기 위해 아이디를 가져와서 상품을 보여주거나 수정할 수 있도록 가져오는 메서드
 	public Product getProductById(int id) {
 		return productRepository.findProductById(id);
+	}
+	
+	// 제품에 좋아요를 받을 수 있도록 서비스 만들어줌
+	public void likeProduct(int productId) {
+		Product product = productRepository.findById(productId).orElse(null);
+		if(product != null) {
+			product.setLikes(product.getLikes() + 1);
+			productRepository.save(product);
+		}
 	}
 }

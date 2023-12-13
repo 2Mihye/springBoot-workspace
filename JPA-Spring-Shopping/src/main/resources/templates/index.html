@@ -7,7 +7,7 @@
 	<body>
 		<h1>Main Page</h1>
 		<a sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a><br>
-		<a sec:authorize="isAuthenticated()" >로그아웃</a><br>
+		<a sec:authorize="isAuthenticated()" th:href="@{/user/logout}" >로그아웃</a><br>
 		<a sec:authorize="isAnonymous()" th:href="@{/user/signup}">회원가입</a><br>
 		<a th:href="@{/list}">상품리스트</a>
 		

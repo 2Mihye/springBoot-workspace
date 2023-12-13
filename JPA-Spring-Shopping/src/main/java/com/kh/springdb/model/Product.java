@@ -48,6 +48,11 @@ public class Product {
 		this.createDate = LocalDate.now();
 	}
 	
-	// 제품에 대한 좋아요를 받고 싶다면 여기에 추천과 관련된 변수를 넣어줘도 됨.
+	// 제품 좋아요 클릭하여 좋아요 수 추가
+	private int likes; // 좋아요를 받는 방법은 여러 방법이 있음.
+	 // 1. 사용자 관계 없이 카운트만 올라가게 하기
+	
+	 //	2. ManyToOne이나 OneToMany를 이용하여 서로 카운트 주기
+		
 	
 }
